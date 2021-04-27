@@ -1,0 +1,37 @@
+###
+GET http://localhost:4000/test
+###
+POST http://localhost:4000/test
+Content-Type: application/json
+
+{
+    "Nombre":"hola mundo"
+}
+###
+###
+GET http://localhost:4000/api/user
+###
+POST http://localhost:4000/api/signin
+Content-Type: application/json
+
+{
+    "UserName":"dulce123",
+    "Password":"aaaaAAAA1aa"
+}
+###
+POST http://localhost:4000/api/signup
+Content-Type: application/json
+
+{
+    "ID":"0",              
+	"UserName":"lucia",        
+	"Password":"12341234Aa",        
+	"Nombre":"Lucia",          
+	"Apellido":"Perez",        
+	"FechaNacimiento":"12-12-1999", 
+	"FechaRegistro":"",   
+	"Email":"lucia@gmail.com",           
+	"FotoPerfil":"-",      
+	"Tipo":0,            
+	"Membresia":4      
+}

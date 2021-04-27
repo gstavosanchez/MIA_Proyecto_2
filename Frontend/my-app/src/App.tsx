@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route,Switch } from 'react-router-dom'
+// Bootstrap
+import "bootswatch/dist/journal/bootstrap.min.css";
+// ToastContainer
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+// Components
+import { Navbar } from "./components/Navbar/Navbar";
+import { Login } from "./components/Login/Login";
+import { SignUp } from "./components/Register/SignUp";
+import { Index } from './components/Index/Index'
+import { Dashboard } from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar/>
+      <div className="container p-4">
+        <Switch>
+          <Route path="/" exact component={Index} />
+          <Route path="/signin" exact component={Login} />
+          <Route path="/signup" exact component={SignUp} />
+          <Route path="/dashboard" exact component={Dashboard} />
+        </Switch>
+      </div>
+      <ToastContainer/>
+    </BrowserRouter>
   );
 }
 
