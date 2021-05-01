@@ -10,3 +10,6 @@ export const signIn = async(userLogin:ILogin) => {
             }
     })
 }
+export const signUp = (user:IUser) => {
+    
+}

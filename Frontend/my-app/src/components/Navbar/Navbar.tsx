@@ -1,27 +1,68 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { Fragment, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import {
+  AppBar,
+  Button,
+  IconButton,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
+import { Home } from "@material-ui/icons";
+import { UserContext } from "../../context/user/UserContext";
+const useStyles = makeStyles((theme) => ({
+  offset: theme.mixins.toolbar,
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  tittle:{
+    flexGrow: 1
+  }
+}));
 export const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link className="navbar-brand" to="/">
-          Quineala App
-        </Link>
+  const clasStyle = useStyles();
+  const {isLogged,userID,tipoID,setLogged,setID,setTipo} = useContext(UserContext)
+  const history = useHistory();
+  const logOut = () => {
+    localStorage.removeItem('userID')
+    setLogged(false)
+    setID(0)
+    setTipo(0)
+    history.push('/signin');
+  }
   
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Sign Up
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signin">
+  return (
+    <div>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            className={clasStyle.menuButton}
+            component={Link} to ="/"
+          >
+            <Home />
+          </IconButton>
+          <Typography variant="h6" className={clasStyle.tittle}  >Quinieala App</Typography>
+          {
+            isLogged === false ? 
+            <Fragment>
+              <Button component={Link} to ="/signin" color="inherit" variant="text" >
                 Sign In
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    )
-}
+              </Button>
+              <Button component={Link} to ="/signup" color="inherit" variant="text" >
+                Sign Up
+              </Button>
+            </Fragment> : 
+            <Fragment>
+               <Button color="inherit" variant="text" onClick={logOut}  >
+                Sign Out
+              </Button>
+            </Fragment> 
+          }
+        </Toolbar>
+      </AppBar>
+      {/*<div className={clasStyle.offset}/> */}
+    </div>
+  );
+};
