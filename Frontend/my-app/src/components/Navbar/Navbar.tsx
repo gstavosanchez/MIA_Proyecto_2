@@ -1,68 +1,18 @@
 import React, { Fragment, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
-import {
-  AppBar,
-  Button,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import { Home } from "@material-ui/icons";
 import { UserContext } from "../../context/user/UserContext";
-const useStyles = makeStyles((theme) => ({
-  offset: theme.mixins.toolbar,
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  tittle:{
-    flexGrow: 1
-  }
-}));
+import { NavbarAdmin } from './NavbarAdmin'
+import { NavbarClient } from './NavbarClient'
+import { NavbarLogin } from './NavbarLogin'
 export const Navbar = () => {
-  const clasStyle = useStyles();
-  const {isLogged,userID,tipoID,setLogged,setID,setTipo} = useContext(UserContext)
-  const history = useHistory();
-  const logOut = () => {
-    localStorage.removeItem('userID')
-    setLogged(false)
-    setID(0)
-    setTipo(0)
-    history.push('/signin');
-  }
-  
+  const { isLogged, tipoID } = useContext(
+    UserContext
+  );
+
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="menu"
-            className={clasStyle.menuButton}
-            component={Link} to ="/"
-          >
-            <Home />
-          </IconButton>
-          <Typography variant="h6" className={clasStyle.tittle}  >Quinieala App</Typography>
-          {
-            isLogged === false ? 
-            <Fragment>
-              <Button component={Link} to ="/signin" color="inherit" variant="text" >
-                Sign In
-              </Button>
-              <Button component={Link} to ="/signup" color="inherit" variant="text" >
-                Sign Up
-              </Button>
-            </Fragment> : 
-            <Fragment>
-               <Button color="inherit" variant="text" onClick={logOut}  >
-                Sign Out
-              </Button>
-            </Fragment> 
-          }
-        </Toolbar>
-      </AppBar>
-      {/*<div className={clasStyle.offset}/> */}
-    </div>
+    <>
+      {isLogged === false && (<NavbarLogin />)}
+      {tipoID === 1 && (<NavbarClient />)}
+      {tipoID === 2 && (<NavbarAdmin />)}
+    </>
   );
 };

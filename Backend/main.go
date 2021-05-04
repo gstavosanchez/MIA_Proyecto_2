@@ -55,6 +55,16 @@ type errorRequest struct {
 	Error string `json:"Error"`
 }
 
+// Membresia
+type membresia struct {
+	ID     int    `json:"ID"`
+	Nombre string `json:"Nombre"`
+	Precio int    `json:"Precio"`
+}
+type allMembresia []membresia
+
+var membresiaList = allMembresia{}
+
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
 /* == == == == == == == == == == == SERVER == == == == == == == == == == == */
 func indexRouter(w http.ResponseWriter, r *http.Request) {
@@ -87,6 +97,35 @@ func getUserApi(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(userList)
 
+}
+
+// Get usuario by id
+func getUserByIDAPI(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	getTime("GET to: /api/user/id")
+
+	w.Header().Set("Content-Type", "application/json")
+	userID, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		var newError errorRequest
+		newError.Error = "Invalid ID"
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(newError)
+		return
+	}
+	getUserByIdDB(userID)
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(userList)
+
+}
+
+// GET membresia
+func getMembresiaAPI(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/membresia")
+	getMembresiaDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(membresiaList)
 }
 
 // == == LOGIN == ==
@@ -171,6 +210,25 @@ func getDBUser() {
 	}
 	defer rows.Close()
 }
+func getUserByIdDB(id int) {
+	var userNew user
+	userList = allUser{}
+	idStr := strconv.FormatInt(int64(id), 10)
+	query := "SELECT * FROM Usuario WHERE usuario_ID = " + idStr
+	rows, err := database.Query(query)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&userNew.ID, &userNew.UserName, &userNew.Password, &userNew.Nombre,
+			&userNew.Apellido, &userNew.FechaNacimiento, &userNew.FechaRegistro, &userNew.Email,
+			&userNew.FotoPerfil, &userNew.Tipo, &userNew.Membresia)
+		userList = append(userList, userNew)
+	}
+	defer rows.Close()
+}
 func signInDB(username, password string) {
 	var userNew user
 	userList = allUser{}
@@ -202,6 +260,21 @@ func signUpDB(newUser user) string {
 	}
 	return "success"
 }
+func getMembresiaDB() {
+	var membresiaNew membresia
+	membresiaList = allMembresia{}
+	rows, err := database.Query("SELECT * FROM Membresia")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&membresiaNew.ID, &membresiaNew.Nombre, &membresiaNew.Precio)
+		membresiaList = append(membresiaList, membresiaNew)
+	}
+	defer rows.Close()
+}
 
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
 func getTime(data string) {
@@ -230,7 +303,14 @@ func main() {
 	router.HandleFunc("/", indexRouter)
 	router.HandleFunc("/test", getTests).Methods("GET")
 	//router.HandleFunc("/test", createTest).Methods("POST")
+	// Membresia
+	router.HandleFunc("/api/membresia", getMembresiaAPI).Methods("GET")
+
+	//USUARIO
 	router.HandleFunc("/api/user", getUserApi).Methods("GET")
+	router.HandleFunc("/api/user/{id}", getUserByIDAPI).Methods("GET")
+
+	// LOGIN - REGISTER
 	router.HandleFunc("/api/signin", signInApi).Methods("POST")
 	router.HandleFunc("/api/signup", signUpApi).Methods("POST")
 

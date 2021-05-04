@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // Material UI
+import 'fontsource-roboto';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
+import { blue } from "@material-ui/core/colors";
 // ToastContainer
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,9 +14,10 @@ import { SignUp } from "./components/Register/SignUp";
 import { Index } from "./components/Index/Index";
 import { Dashboard } from "./components/Dashboard/Dashboard";
 import { UserState } from "./context/user/UserState";
+import { BuyMembresia } from "./components/Buy/BuyMembresia";
 const theme = createMuiTheme({
   palette: {
-    primary: grey,
+    primary: blue,
   },
 });
 function App() {
@@ -29,6 +31,7 @@ function App() {
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/buy-member" exact component={BuyMembresia} />
           </Switch>
         </UserState>
       </ThemeProvider>

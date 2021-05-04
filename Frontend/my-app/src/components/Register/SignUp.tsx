@@ -1,5 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router";
 import { IUser } from "../../models/User";
+import * as userService from "../../services/UserService";
 //import * as moment from 'moment'
 // Material UI
 import {
@@ -52,6 +55,7 @@ export const SignUp = () => {
     width: 400,
     margin: "20px auto",
   };
+  const history = useHistory();
   const [user, setUser] = useState<IUser>(initialState);
   const handleInputChange = (e:InputChange) => {
     setUser({
@@ -59,18 +63,33 @@ export const SignUp = () => {
       [e.target.name]: e.target.value
     })
   }
-  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(user.FechaNacimiento !== ""){
       const dateSplit:string[] = user.FechaNacimiento.split("-")
       const newDate:string = `${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}`
       user.FechaNacimiento = newDate;
-      /*      setUser({
-        ...user,
-        UserName:'hola mundo'
-      })  */
+      if (clientAge(dateSplit[0])){
+        const res = await userService.signUp(user)    
+        if(res){
+          toast.success('New user created')
+          history.push('/signin')
+          return
+        }else{
+          toast.dark('Password invalid or Username duplicate')  
+        }
+       
+      }else{
+        toast.dark('You are under 18 years old')
+      }
+    
     }
-    console.log(user)
+  }
+  const clientAge = (yearOfBirth:string):boolean => {
+    var newDate = new Date();
+    const birth:number = parseInt(yearOfBirth)
+    if((newDate.getFullYear() - birth) < 18) return false
+    return true;
   }
   
   return (

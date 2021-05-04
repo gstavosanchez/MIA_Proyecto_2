@@ -1,0 +1,1837 @@
+A2:
+  nombre: Jorge
+  apellido: Pook
+  password: Mvjtqy
+  username: jpook0@army.mil
+  resultados:
+    - temporada: 2019-Q2
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: golf
+              fecha: 03/02/2019 11:29
+              visitante: Ollie Worden
+              local: Kylie Peerless
+              prediccion:
+                visitante: 0
+                local: 8
+              resultado:
+                visitante: 4
+                local: 8
+            - deporte: tennis
+              fecha: 05/02/2019 22:34
+              visitante: Damara Frostick
+              local: Idell Worton
+              prediccion:
+                visitante: 7
+                local: 7
+              resultado:
+                visitante: 6
+                local: 0
+    - temporada: 2018-Q3
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: tennis
+              fecha: 05/03/2018 11:58
+              visitante: Sarge Rowlings
+              local: Kermit Garbar
+              prediccion:
+                visitante: 8
+                local: 0
+              resultado:
+                visitante: 8
+                local: 4
+            - deporte: tennis
+              fecha: 02/03/2018 20:33
+              visitante: Cacilie Peoples
+              local: Stefa Kissick
+              prediccion:
+                visitante: 7
+                local: 5
+              resultado:
+                visitante: 2
+                local: 6
+    - temporada: 2018-Q5
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: baseball
+              fecha: 04/05/2018 17:30
+              visitante: Support
+              local: Legal
+              prediccion:
+                visitante: 0
+                local: 7
+              resultado:
+                visitante: 1
+                local: 9
+            - deporte: volleyball
+              fecha: 05/05/2018 16:17
+              visitante: Research and Development
+              local: Product Management
+              prediccion:
+                visitante: 9
+                local: 5
+              resultado:
+                visitante: 5
+                local: 1
+            - deporte: football
+              fecha: 03/05/2018 16:41
+              visitante: Engineering
+              local: Services
+              prediccion:
+                visitante: 7
+                local: 1
+              resultado:
+                visitante: 4
+                local: 9
+            - deporte: football
+              fecha: 02/05/2018 13:25
+              visitante: Marketing
+              local: Services
+              prediccion:
+                visitante: 9
+                local: 8
+              resultado:
+                visitante: 2
+                local: 3
+    - temporada: 2019-Q11
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: football
+              fecha: 04/11/2019 15:09
+              visitante: Research and Development
+              local: Marketing
+              prediccion:
+                visitante: 1
+                local: 7
+              resultado:
+                visitante: 4
+                local: 1
+            - deporte: volleyball
+              fecha: 04/11/2019 11:14
+              visitante: Product Management
+              local: Legal
+              prediccion:
+                visitante: 3
+                local: 5
+              resultado:
+                visitante: 8
+                local: 7
+            - deporte: football
+              fecha: 06/11/2019 13:45
+              visitante: Business Development
+              local: Marketing
+              prediccion:
+                visitante: 5
+                local: 9
+              resultado:
+                visitante: 6
+                local: 7
+            - deporte: baseball
+              fecha: 06/11/2019 12:23
+              visitante: Product Management
+              local: Training
+              prediccion:
+                visitante: 3
+                local: 8
+              resultado:
+                visitante: 6
+                local: 5
+            - deporte: baseball
+              fecha: 01/11/2019 20:39
+              visitante: Product Management
+              local: Human Resources
+              prediccion:
+                visitante: 5
+                local: 4
+              resultado:
+                visitante: 6
+                local: 7
+    - temporada: 2018-Q10
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: badminton
+              fecha: 19/10/2018 12:22
+              visitante: Esra Briton
+              local: Appolonia Akam
+              prediccion:
+                visitante: 7
+                local: 9
+              resultado:
+                visitante: 0
+                local: 1
+            - deporte: tennis
+              fecha: 16/10/2018 19:47
+              visitante: Norah Evens
+              local: Taddeo Tschirasche
+              prediccion:
+                visitante: 1
+                local: 8
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: golf
+              fecha: 19/10/2018 18:04
+              visitante: Dorene McClunaghan
+              local: Deedee Cabel
+              prediccion:
+                visitante: 7
+                local: 3
+              resultado:
+                visitante: 7
+                local: 5
+            - deporte: golf
+              fecha: 17/10/2018 19:13
+              visitante: Kelcey Bazoche
+              local: Sula Deeble
+              prediccion:
+                visitante: 3
+                local: 7
+              resultado:
+                visitante: 4
+                local: 3
+            - deporte: badminton
+              fecha: 16/10/2018 22:35
+              visitante: Del Croll
+              local: Derk Peyto
+              prediccion:
+                visitante: 1
+                local: 0
+              resultado:
+                visitante: 6
+                local: 6
+        - jornada: J2
+          predicciones:
+            - deporte: badminton
+              fecha: 19/10/2018 12:22
+              visitante: Esra Briton
+              local: Appolonia Akam
+              prediccion:
+                visitante: 3
+                local: 8
+              resultado:
+                visitante: 0
+                local: 1
+            - deporte: tennis
+              fecha: 16/10/2018 19:47
+              visitante: Norah Evens
+              local: Taddeo Tschirasche
+              prediccion:
+                visitante: 2
+                local: 4
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: golf
+              fecha: 19/10/2018 18:04
+              visitante: Dorene McClunaghan
+              local: Deedee Cabel
+              prediccion:
+                visitante: 2
+                local: 9
+              resultado:
+                visitante: 7
+                local: 5
+            - deporte: golf
+              fecha: 17/10/2018 19:13
+              visitante: Kelcey Bazoche
+              local: Sula Deeble
+              prediccion:
+                visitante: 3
+                local: 8
+              resultado:
+                visitante: 4
+                local: 3
+            - deporte: badminton
+              fecha: 16/10/2018 22:35
+              visitante: Del Croll
+              local: Derk Peyto
+              prediccion:
+                visitante: 8
+                local: 4
+              resultado:
+                visitante: 6
+                local: 6
+        - jornada: J3
+          predicciones:
+            - deporte: badminton
+              fecha: 19/10/2018 12:22
+              visitante: Esra Briton
+              local: Appolonia Akam
+              prediccion:
+                visitante: 7
+                local: 6
+              resultado:
+                visitante: 0
+                local: 1
+            - deporte: tennis
+              fecha: 16/10/2018 19:47
+              visitante: Norah Evens
+              local: Taddeo Tschirasche
+              prediccion:
+                visitante: 6
+                local: 9
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: golf
+              fecha: 19/10/2018 18:04
+              visitante: Dorene McClunaghan
+              local: Deedee Cabel
+              prediccion:
+                visitante: 5
+                local: 6
+              resultado:
+                visitante: 7
+                local: 5
+            - deporte: golf
+              fecha: 17/10/2018 19:13
+              visitante: Kelcey Bazoche
+              local: Sula Deeble
+              prediccion:
+                visitante: 2
+                local: 3
+              resultado:
+                visitante: 4
+                local: 3
+            - deporte: badminton
+              fecha: 16/10/2018 22:35
+              visitante: Del Croll
+              local: Derk Peyto
+              prediccion:
+                visitante: 2
+                local: 6
+              resultado:
+                visitante: 6
+                local: 6
+    - temporada: 2018-Q1
+      tier: bronze
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: golf
+              fecha: 26/01/2018 16:55
+              visitante: Petr Gasker
+              local: Chen Ashbee
+              prediccion:
+                visitante: 0
+                local: 1
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: badminton
+              fecha: 26/01/2018 18:34
+              visitante: Orelle Monkton
+              local: Rurik Kynforth
+              prediccion:
+                visitante: 9
+                local: 7
+              resultado:
+                visitante: 2
+                local: 8
+            - deporte: tennis
+              fecha: 22/01/2018 17:20
+              visitante: Heinrik Willowby
+              local: Freddie Sparhawk
+              prediccion:
+                visitante: 5
+                local: 3
+              resultado:
+                visitante: 9
+                local: 2
+        - jornada: J2
+          predicciones:
+            - deporte: golf
+              fecha: 26/01/2018 16:55
+              visitante: Petr Gasker
+              local: Chen Ashbee
+              prediccion:
+                visitante: 0
+                local: 0
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: badminton
+              fecha: 26/01/2018 18:34
+              visitante: Orelle Monkton
+              local: Rurik Kynforth
+              prediccion:
+                visitante: 6
+                local: 8
+              resultado:
+                visitante: 2
+                local: 8
+            - deporte: tennis
+              fecha: 22/01/2018 17:20
+              visitante: Heinrik Willowby
+              local: Freddie Sparhawk
+              prediccion:
+                visitante: 6
+                local: 7
+              resultado:
+                visitante: 9
+                local: 2
+        - jornada: J3
+          predicciones:
+            - deporte: golf
+              fecha: 26/01/2018 16:55
+              visitante: Petr Gasker
+              local: Chen Ashbee
+              prediccion:
+                visitante: 8
+                local: 4
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: badminton
+              fecha: 26/01/2018 18:34
+              visitante: Orelle Monkton
+              local: Rurik Kynforth
+              prediccion:
+                visitante: 4
+                local: 4
+              resultado:
+                visitante: 2
+                local: 8
+            - deporte: tennis
+              fecha: 22/01/2018 17:20
+              visitante: Heinrik Willowby
+              local: Freddie Sparhawk
+              prediccion:
+                visitante: 1
+                local: 2
+              resultado:
+                visitante: 9
+                local: 2
+        - jornada: J4
+          predicciones:
+            - deporte: golf
+              fecha: 26/01/2018 16:55
+              visitante: Petr Gasker
+              local: Chen Ashbee
+              prediccion:
+                visitante: 1
+                local: 8
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: badminton
+              fecha: 26/01/2018 18:34
+              visitante: Orelle Monkton
+              local: Rurik Kynforth
+              prediccion:
+                visitante: 7
+                local: 8
+              resultado:
+                visitante: 2
+                local: 8
+            - deporte: tennis
+              fecha: 22/01/2018 17:20
+              visitante: Heinrik Willowby
+              local: Freddie Sparhawk
+              prediccion:
+                visitante: 4
+                local: 7
+              resultado:
+                visitante: 9
+                local: 2
+    - temporada: 2019-Q12
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: ping-pong
+              fecha: 10/12/2019 22:35
+              visitante: Idell Worton
+              local: Amble Brewins
+              prediccion:
+                visitante: 1
+                local: 8
+              resultado:
+                visitante: 4
+                local: 2
+            - deporte: golf
+              fecha: 12/12/2019 22:52
+              visitante: Del Croll
+              local: Boycie Nickless
+              prediccion:
+                visitante: 0
+                local: 5
+              resultado:
+                visitante: 4
+                local: 1
+            - deporte: ping-pong
+              fecha: 10/12/2019 14:13
+              visitante: Britteny Keele
+              local: Del Croll
+              prediccion:
+                visitante: 5
+                local: 2
+              resultado:
+                visitante: 2
+                local: 7
+            - deporte: tennis
+              fecha: 12/12/2019 18:21
+              visitante: Hilda Orpyne
+              local: Esra Briton
+              prediccion:
+                visitante: 0
+                local: 8
+              resultado:
+                visitante: 5
+                local: 0
+        - jornada: J2
+          predicciones:
+            - deporte: ping-pong
+              fecha: 10/12/2019 22:35
+              visitante: Idell Worton
+              local: Amble Brewins
+              prediccion:
+                visitante: 7
+                local: 6
+              resultado:
+                visitante: 4
+                local: 2
+            - deporte: golf
+              fecha: 12/12/2019 22:52
+              visitante: Del Croll
+              local: Boycie Nickless
+              prediccion:
+                visitante: 6
+                local: 3
+              resultado:
+                visitante: 4
+                local: 1
+            - deporte: ping-pong
+              fecha: 10/12/2019 14:13
+              visitante: Britteny Keele
+              local: Del Croll
+              prediccion:
+                visitante: 2
+                local: 0
+              resultado:
+                visitante: 2
+                local: 7
+            - deporte: tennis
+              fecha: 12/12/2019 18:21
+              visitante: Hilda Orpyne
+              local: Esra Briton
+              prediccion:
+                visitante: 5
+                local: 0
+              resultado:
+                visitante: 5
+                local: 0
+    - temporada: 2018-Q10
+      tier: bronze
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: golf
+              fecha: 24/10/2018 20:08
+              visitante: Dorice Munton
+              local: Yance Hancock
+              prediccion:
+                visitante: 9
+                local: 7
+              resultado:
+                visitante: 1
+                local: 7
+            - deporte: ping-pong
+              fecha: 24/10/2018 19:13
+              visitante: Jennilee Gawthorpe
+              local: Carolyn Curgenuer
+              prediccion:
+                visitante: 2
+                local: 4
+              resultado:
+                visitante: 8
+                local: 0
+            - deporte: tennis
+              fecha: 27/10/2018 22:32
+              visitante: Heinrik Willowby
+              local: Hilliary Kettlestringe
+              prediccion:
+                visitante: 3
+                local: 7
+              resultado:
+                visitante: 2
+                local: 3
+            - deporte: tennis
+              fecha: 26/10/2018 19:36
+              visitante: Karry Edge
+              local: Gail Dingsdale
+              prediccion:
+                visitante: 9
+                local: 9
+              resultado:
+                visitante: 6
+                local: 5
+            - deporte: tennis
+              fecha: 24/10/2018 22:25
+              visitante: Hilliary Kettlestringe
+              local: Ollie Worden
+              prediccion:
+                visitante: 3
+                local: 0
+              resultado:
+                visitante: 9
+                local: 5
+        - jornada: J2
+          predicciones:
+            - deporte: golf
+              fecha: 24/10/2018 20:08
+              visitante: Dorice Munton
+              local: Yance Hancock
+              prediccion:
+                visitante: 9
+                local: 8
+              resultado:
+                visitante: 1
+                local: 7
+            - deporte: ping-pong
+              fecha: 24/10/2018 19:13
+              visitante: Jennilee Gawthorpe
+              local: Carolyn Curgenuer
+              prediccion:
+                visitante: 4
+                local: 3
+              resultado:
+                visitante: 8
+                local: 0
+            - deporte: tennis
+              fecha: 27/10/2018 22:32
+              visitante: Heinrik Willowby
+              local: Hilliary Kettlestringe
+              prediccion:
+                visitante: 9
+                local: 0
+              resultado:
+                visitante: 2
+                local: 3
+            - deporte: tennis
+              fecha: 26/10/2018 19:36
+              visitante: Karry Edge
+              local: Gail Dingsdale
+              prediccion:
+                visitante: 4
+                local: 2
+              resultado:
+                visitante: 6
+                local: 5
+            - deporte: tennis
+              fecha: 24/10/2018 22:25
+              visitante: Hilliary Kettlestringe
+              local: Ollie Worden
+              prediccion:
+                visitante: 6
+                local: 4
+              resultado:
+                visitante: 9
+                local: 5
+        - jornada: J3
+          predicciones:
+            - deporte: golf
+              fecha: 24/10/2018 20:08
+              visitante: Dorice Munton
+              local: Yance Hancock
+              prediccion:
+                visitante: 8
+                local: 2
+              resultado:
+                visitante: 1
+                local: 7
+            - deporte: ping-pong
+              fecha: 24/10/2018 19:13
+              visitante: Jennilee Gawthorpe
+              local: Carolyn Curgenuer
+              prediccion:
+                visitante: 4
+                local: 0
+              resultado:
+                visitante: 8
+                local: 0
+            - deporte: tennis
+              fecha: 27/10/2018 22:32
+              visitante: Heinrik Willowby
+              local: Hilliary Kettlestringe
+              prediccion:
+                visitante: 6
+                local: 1
+              resultado:
+                visitante: 2
+                local: 3
+            - deporte: tennis
+              fecha: 26/10/2018 19:36
+              visitante: Karry Edge
+              local: Gail Dingsdale
+              prediccion:
+                visitante: 8
+                local: 4
+              resultado:
+                visitante: 6
+                local: 5
+            - deporte: tennis
+              fecha: 24/10/2018 22:25
+              visitante: Hilliary Kettlestringe
+              local: Ollie Worden
+              prediccion:
+                visitante: 6
+                local: 4
+              resultado:
+                visitante: 9
+                local: 5
+        - jornada: J4
+          predicciones:
+            - deporte: golf
+              fecha: 24/10/2018 20:08
+              visitante: Dorice Munton
+              local: Yance Hancock
+              prediccion:
+                visitante: 2
+                local: 1
+              resultado:
+                visitante: 1
+                local: 7
+            - deporte: ping-pong
+              fecha: 24/10/2018 19:13
+              visitante: Jennilee Gawthorpe
+              local: Carolyn Curgenuer
+              prediccion:
+                visitante: 3
+                local: 6
+              resultado:
+                visitante: 8
+                local: 0
+            - deporte: tennis
+              fecha: 27/10/2018 22:32
+              visitante: Heinrik Willowby
+              local: Hilliary Kettlestringe
+              prediccion:
+                visitante: 2
+                local: 8
+              resultado:
+                visitante: 2
+                local: 3
+            - deporte: tennis
+              fecha: 26/10/2018 19:36
+              visitante: Karry Edge
+              local: Gail Dingsdale
+              prediccion:
+                visitante: 8
+                local: 7
+              resultado:
+                visitante: 6
+                local: 5
+            - deporte: tennis
+              fecha: 24/10/2018 22:25
+              visitante: Hilliary Kettlestringe
+              local: Ollie Worden
+              prediccion:
+                visitante: 9
+                local: 3
+              resultado:
+                visitante: 9
+                local: 5
+    - temporada: 2018-Q10
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: golf
+              fecha: 08/10/2018 10:57
+              visitante: Carin Southan
+              local: Donni Shuter
+              prediccion:
+                visitante: 1
+                local: 8
+              resultado:
+                visitante: 4
+                local: 8
+            - deporte: golf
+              fecha: 12/10/2018 07:01
+              visitante: Siegfried Mulheron
+              local: Damara Frostick
+              prediccion:
+                visitante: 4
+                local: 5
+              resultado:
+                visitante: 8
+                local: 4
+            - deporte: ping-pong
+              fecha: 09/10/2018 15:22
+              visitante: Roderick Lindemann
+              local: Allyn MacCome
+              prediccion:
+                visitante: 7
+                local: 7
+              resultado:
+                visitante: 1
+                local: 1
+            - deporte: golf
+              fecha: 12/10/2018 10:32
+              visitante: Philly Woodroof
+              local: Meredith Chesshire
+              prediccion:
+                visitante: 5
+                local: 5
+              resultado:
+                visitante: 8
+                local: 0
+        - jornada: J2
+          predicciones:
+            - deporte: golf
+              fecha: 08/10/2018 10:57
+              visitante: Carin Southan
+              local: Donni Shuter
+              prediccion:
+                visitante: 5
+                local: 0
+              resultado:
+                visitante: 4
+                local: 8
+            - deporte: golf
+              fecha: 12/10/2018 07:01
+              visitante: Siegfried Mulheron
+              local: Damara Frostick
+              prediccion:
+                visitante: 5
+                local: 1
+              resultado:
+                visitante: 8
+                local: 4
+            - deporte: ping-pong
+              fecha: 09/10/2018 15:22
+              visitante: Roderick Lindemann
+              local: Allyn MacCome
+              prediccion:
+                visitante: 0
+                local: 3
+              resultado:
+                visitante: 1
+                local: 1
+            - deporte: golf
+              fecha: 12/10/2018 10:32
+              visitante: Philly Woodroof
+              local: Meredith Chesshire
+              prediccion:
+                visitante: 3
+                local: 6
+              resultado:
+                visitante: 8
+                local: 0
+A3:
+  nombre: Flynn
+  apellido: Warder
+  password: p6F9u7PUBsT
+  username: fwarder1@linkedin.com
+  resultados:
+    - temporada: 2018-Q4
+      tier: bronze
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: volleyball
+              fecha: 03/04/2018 14:01
+              visitante: Services
+              local: Marketing
+              prediccion:
+                visitante: 9
+                local: 8
+              resultado:
+                visitante: 4
+                local: 0
+            - deporte: volleyball
+              fecha: 02/04/2018 15:07
+              visitante: Marketing
+              local: Training
+              prediccion:
+                visitante: 1
+                local: 4
+              resultado:
+                visitante: 0
+                local: 6
+            - deporte: volleyball
+              fecha: 04/04/2018 11:42
+              visitante: Support
+              local: Sales
+              prediccion:
+                visitante: 9
+                local: 1
+              resultado:
+                visitante: 6
+                local: 1
+            - deporte: football
+              fecha: 04/04/2018 12:55
+              visitante: Human Resources
+              local: Product Management
+              prediccion:
+                visitante: 0
+                local: 5
+              resultado:
+                visitante: 5
+                local: 8
+    - temporada: 2019-Q5
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: volleyball
+              fecha: 01/05/2019 17:56
+              visitante: Sales
+              local: Marketing
+              prediccion:
+                visitante: 7
+                local: 9
+              resultado:
+                visitante: 5
+                local: 6
+            - deporte: volleyball
+              fecha: 02/05/2019 17:55
+              visitante: Engineering
+              local: Product Management
+              prediccion:
+                visitante: 1
+                local: 7
+              resultado:
+                visitante: 6
+                local: 7
+    - temporada: 2020-Q5
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: tennis
+              fecha: 25/05/2020 12:26
+              visitante: Alvina Libbey
+              local: Yovonnda Duce
+              prediccion:
+                visitante: 0
+                local: 4
+              resultado:
+                visitante: 8
+                local: 1
+            - deporte: ping-pong
+              fecha: 23/05/2020 18:56
+              visitante: Philly Woodroof
+              local: Yank Dougill
+              prediccion:
+                visitante: 0
+                local: 3
+              resultado:
+                visitante: 8
+                local: 2
+        - jornada: J2
+          predicciones:
+            - deporte: tennis
+              fecha: 25/05/2020 12:26
+              visitante: Alvina Libbey
+              local: Yovonnda Duce
+              prediccion:
+                visitante: 8
+                local: 9
+              resultado:
+                visitante: 8
+                local: 1
+            - deporte: ping-pong
+              fecha: 23/05/2020 18:56
+              visitante: Philly Woodroof
+              local: Yank Dougill
+              prediccion:
+                visitante: 6
+                local: 1
+              resultado:
+                visitante: 8
+                local: 2
+        - jornada: J3
+          predicciones:
+            - deporte: tennis
+              fecha: 25/05/2020 12:26
+              visitante: Alvina Libbey
+              local: Yovonnda Duce
+              prediccion:
+                visitante: 1
+                local: 1
+              resultado:
+                visitante: 8
+                local: 1
+            - deporte: ping-pong
+              fecha: 23/05/2020 18:56
+              visitante: Philly Woodroof
+              local: Yank Dougill
+              prediccion:
+                visitante: 8
+                local: 2
+              resultado:
+                visitante: 8
+                local: 2
+        - jornada: J4
+          predicciones:
+            - deporte: tennis
+              fecha: 25/05/2020 12:26
+              visitante: Alvina Libbey
+              local: Yovonnda Duce
+              prediccion:
+                visitante: 3
+                local: 8
+              resultado:
+                visitante: 8
+                local: 1
+            - deporte: ping-pong
+              fecha: 23/05/2020 18:56
+              visitante: Philly Woodroof
+              local: Yank Dougill
+              prediccion:
+                visitante: 2
+                local: 9
+              resultado:
+                visitante: 8
+                local: 2
+    - temporada: 2019-Q3
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: baseball
+              fecha: 02/03/2019 19:58
+              visitante: Support
+              local: Business Development
+              prediccion:
+                visitante: 1
+                local: 6
+              resultado:
+                visitante: 0
+                local: 6
+            - deporte: volleyball
+              fecha: 06/03/2019 14:14
+              visitante: Support
+              local: Sales
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 1
+                local: 0
+            - deporte: basketball
+              fecha: 01/03/2019 10:37
+              visitante: Support
+              local: Product Management
+              prediccion:
+                visitante: 8
+                local: 4
+              resultado:
+                visitante: 3
+                local: 8
+            - deporte: volleyball
+              fecha: 05/03/2019 12:23
+              visitante: Business Development
+              local: Services
+              prediccion:
+                visitante: 6
+                local: 7
+              resultado:
+                visitante: 3
+                local: 2
+    - temporada: 2020-Q11
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: ping-pong
+              fecha: 16/11/2020 07:29
+              visitante: Rurik Kynforth
+              local: Etti Ellershaw
+              prediccion:
+                visitante: 3
+                local: 1
+              resultado:
+                visitante: 2
+                local: 4
+            - deporte: badminton
+              fecha: 17/11/2020 10:02
+              visitante: Dorice Munton
+              local: Roderick Lindemann
+              prediccion:
+                visitante: 1
+                local: 3
+              resultado:
+                visitante: 2
+                local: 2
+            - deporte: badminton
+              fecha: 19/11/2020 10:32
+              visitante: Karlotta Gooderridge
+              local: Nathanael Duxbarry
+              prediccion:
+                visitante: 4
+                local: 1
+              resultado:
+                visitante: 5
+                local: 6
+            - deporte: golf
+              fecha: 20/11/2020 15:27
+              visitante: Ferguson Worcs
+              local: Sigismund Lucius
+              prediccion:
+                visitante: 4
+                local: 4
+              resultado:
+                visitante: 2
+                local: 5
+        - jornada: J2
+          predicciones:
+            - deporte: ping-pong
+              fecha: 16/11/2020 07:29
+              visitante: Rurik Kynforth
+              local: Etti Ellershaw
+              prediccion:
+                visitante: 8
+                local: 0
+              resultado:
+                visitante: 2
+                local: 4
+            - deporte: badminton
+              fecha: 17/11/2020 10:02
+              visitante: Dorice Munton
+              local: Roderick Lindemann
+              prediccion:
+                visitante: 1
+                local: 4
+              resultado:
+                visitante: 2
+                local: 2
+            - deporte: badminton
+              fecha: 19/11/2020 10:32
+              visitante: Karlotta Gooderridge
+              local: Nathanael Duxbarry
+              prediccion:
+                visitante: 7
+                local: 4
+              resultado:
+                visitante: 5
+                local: 6
+            - deporte: golf
+              fecha: 20/11/2020 15:27
+              visitante: Ferguson Worcs
+              local: Sigismund Lucius
+              prediccion:
+                visitante: 5
+                local: 6
+              resultado:
+                visitante: 2
+                local: 5
+        - jornada: J3
+          predicciones:
+            - deporte: ping-pong
+              fecha: 16/11/2020 07:29
+              visitante: Rurik Kynforth
+              local: Etti Ellershaw
+              prediccion:
+                visitante: 6
+                local: 5
+              resultado:
+                visitante: 2
+                local: 4
+            - deporte: badminton
+              fecha: 17/11/2020 10:02
+              visitante: Dorice Munton
+              local: Roderick Lindemann
+              prediccion:
+                visitante: 2
+                local: 9
+              resultado:
+                visitante: 2
+                local: 2
+            - deporte: badminton
+              fecha: 19/11/2020 10:32
+              visitante: Karlotta Gooderridge
+              local: Nathanael Duxbarry
+              prediccion:
+                visitante: 0
+                local: 2
+              resultado:
+                visitante: 5
+                local: 6
+            - deporte: golf
+              fecha: 20/11/2020 15:27
+              visitante: Ferguson Worcs
+              local: Sigismund Lucius
+              prediccion:
+                visitante: 8
+                local: 6
+              resultado:
+                visitante: 2
+                local: 5
+    - temporada: 2020-Q7
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: badminton
+              fecha: 15/07/2020 10:16
+              visitante: Sella Pavolillo
+              local: Karry Edge
+              prediccion:
+                visitante: 7
+                local: 6
+              resultado:
+                visitante: 9
+                local: 7
+            - deporte: ping-pong
+              fecha: 17/07/2020 17:08
+              visitante: Sonnie Brear
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 6
+                local: 3
+              resultado:
+                visitante: 3
+                local: 0
+            - deporte: golf
+              fecha: 17/07/2020 18:17
+              visitante: Carin Southan
+              local: Sula Deeble
+              prediccion:
+                visitante: 1
+                local: 9
+              resultado:
+                visitante: 4
+                local: 0
+            - deporte: badminton
+              fecha: 20/07/2020 12:20
+              visitante: Karry Edge
+              local: Linda Creswell
+              prediccion:
+                visitante: 0
+                local: 7
+              resultado:
+                visitante: 8
+                local: 8
+        - jornada: J2
+          predicciones:
+            - deporte: badminton
+              fecha: 15/07/2020 10:16
+              visitante: Sella Pavolillo
+              local: Karry Edge
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 9
+                local: 7
+            - deporte: ping-pong
+              fecha: 17/07/2020 17:08
+              visitante: Sonnie Brear
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 1
+                local: 5
+              resultado:
+                visitante: 3
+                local: 0
+            - deporte: golf
+              fecha: 17/07/2020 18:17
+              visitante: Carin Southan
+              local: Sula Deeble
+              prediccion:
+                visitante: 0
+                local: 2
+              resultado:
+                visitante: 4
+                local: 0
+            - deporte: badminton
+              fecha: 20/07/2020 12:20
+              visitante: Karry Edge
+              local: Linda Creswell
+              prediccion:
+                visitante: 4
+                local: 3
+              resultado:
+                visitante: 8
+                local: 8
+        - jornada: J3
+          predicciones:
+            - deporte: badminton
+              fecha: 15/07/2020 10:16
+              visitante: Sella Pavolillo
+              local: Karry Edge
+              prediccion:
+                visitante: 7
+                local: 7
+              resultado:
+                visitante: 9
+                local: 7
+            - deporte: ping-pong
+              fecha: 17/07/2020 17:08
+              visitante: Sonnie Brear
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 9
+                local: 1
+              resultado:
+                visitante: 3
+                local: 0
+            - deporte: golf
+              fecha: 17/07/2020 18:17
+              visitante: Carin Southan
+              local: Sula Deeble
+              prediccion:
+                visitante: 9
+                local: 6
+              resultado:
+                visitante: 4
+                local: 0
+            - deporte: badminton
+              fecha: 20/07/2020 12:20
+              visitante: Karry Edge
+              local: Linda Creswell
+              prediccion:
+                visitante: 3
+                local: 1
+              resultado:
+                visitante: 8
+                local: 8
+    - temporada: 2018-Q8
+      tier: bronze
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: badminton
+              fecha: 12/08/2018 10:31
+              visitante: Delcina Melhuish
+              local: Ollie Worden
+              prediccion:
+                visitante: 0
+                local: 9
+              resultado:
+                visitante: 1
+                local: 1
+            - deporte: tennis
+              fecha: 10/08/2018 18:57
+              visitante: Corene Hafford
+              local: Henrie Geggie
+              prediccion:
+                visitante: 5
+                local: 9
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 08/08/2018 11:16
+              visitante: Britte Kynaston
+              local: Chen Ashbee
+              prediccion:
+                visitante: 2
+                local: 9
+              resultado:
+                visitante: 9
+                local: 6
+            - deporte: tennis
+              fecha: 11/08/2018 14:35
+              visitante: Mattie Dashper
+              local: Adelle Bromwich
+              prediccion:
+                visitante: 9
+                local: 0
+              resultado:
+                visitante: 9
+                local: 7
+        - jornada: J2
+          predicciones:
+            - deporte: badminton
+              fecha: 12/08/2018 10:31
+              visitante: Delcina Melhuish
+              local: Ollie Worden
+              prediccion:
+                visitante: 5
+                local: 9
+              resultado:
+                visitante: 1
+                local: 1
+            - deporte: tennis
+              fecha: 10/08/2018 18:57
+              visitante: Corene Hafford
+              local: Henrie Geggie
+              prediccion:
+                visitante: 4
+                local: 5
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 08/08/2018 11:16
+              visitante: Britte Kynaston
+              local: Chen Ashbee
+              prediccion:
+                visitante: 5
+                local: 1
+              resultado:
+                visitante: 9
+                local: 6
+            - deporte: tennis
+              fecha: 11/08/2018 14:35
+              visitante: Mattie Dashper
+              local: Adelle Bromwich
+              prediccion:
+                visitante: 0
+                local: 1
+              resultado:
+                visitante: 9
+                local: 7
+    - temporada: 2020-Q2
+      tier: gold
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: badminton
+              fecha: 25/02/2020 17:11
+              visitante: Hashim Pamphilon
+              local: Stefa Kissick
+              prediccion:
+                visitante: 9
+                local: 9
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 24/02/2020 18:10
+              visitante: Fleming Woakes
+              local: Rolfe Hold
+              prediccion:
+                visitante: 2
+                local: 3
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: golf
+              fecha: 27/02/2020 21:56
+              visitante: Sella Pavolillo
+              local: Carin Southan
+              prediccion:
+                visitante: 9
+                local: 9
+              resultado:
+                visitante: 3
+                local: 5
+            - deporte: golf
+              fecha: 22/02/2020 08:55
+              visitante: Fleming Woakes
+              local: Allyn MacCome
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 2
+                local: 6
+            - deporte: ping-pong
+              fecha: 26/02/2020 10:50
+              visitante: Boycie Nickless
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 4
+                local: 1
+              resultado:
+                visitante: 1
+                local: 5
+        - jornada: J2
+          predicciones:
+            - deporte: badminton
+              fecha: 25/02/2020 17:11
+              visitante: Hashim Pamphilon
+              local: Stefa Kissick
+              prediccion:
+                visitante: 7
+                local: 3
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 24/02/2020 18:10
+              visitante: Fleming Woakes
+              local: Rolfe Hold
+              prediccion:
+                visitante: 5
+                local: 0
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: golf
+              fecha: 27/02/2020 21:56
+              visitante: Sella Pavolillo
+              local: Carin Southan
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 3
+                local: 5
+            - deporte: golf
+              fecha: 22/02/2020 08:55
+              visitante: Fleming Woakes
+              local: Allyn MacCome
+              prediccion:
+                visitante: 9
+                local: 3
+              resultado:
+                visitante: 2
+                local: 6
+            - deporte: ping-pong
+              fecha: 26/02/2020 10:50
+              visitante: Boycie Nickless
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 1
+                local: 5
+              resultado:
+                visitante: 1
+                local: 5
+        - jornada: J3
+          predicciones:
+            - deporte: badminton
+              fecha: 25/02/2020 17:11
+              visitante: Hashim Pamphilon
+              local: Stefa Kissick
+              prediccion:
+                visitante: 1
+                local: 3
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 24/02/2020 18:10
+              visitante: Fleming Woakes
+              local: Rolfe Hold
+              prediccion:
+                visitante: 6
+                local: 2
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: golf
+              fecha: 27/02/2020 21:56
+              visitante: Sella Pavolillo
+              local: Carin Southan
+              prediccion:
+                visitante: 3
+                local: 3
+              resultado:
+                visitante: 3
+                local: 5
+            - deporte: golf
+              fecha: 22/02/2020 08:55
+              visitante: Fleming Woakes
+              local: Allyn MacCome
+              prediccion:
+                visitante: 1
+                local: 5
+              resultado:
+                visitante: 2
+                local: 6
+            - deporte: ping-pong
+              fecha: 26/02/2020 10:50
+              visitante: Boycie Nickless
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 5
+                local: 3
+              resultado:
+                visitante: 1
+                local: 5
+        - jornada: J4
+          predicciones:
+            - deporte: badminton
+              fecha: 25/02/2020 17:11
+              visitante: Hashim Pamphilon
+              local: Stefa Kissick
+              prediccion:
+                visitante: 2
+                local: 2
+              resultado:
+                visitante: 0
+                local: 9
+            - deporte: tennis
+              fecha: 24/02/2020 18:10
+              visitante: Fleming Woakes
+              local: Rolfe Hold
+              prediccion:
+                visitante: 8
+                local: 9
+              resultado:
+                visitante: 5
+                local: 2
+            - deporte: golf
+              fecha: 27/02/2020 21:56
+              visitante: Sella Pavolillo
+              local: Carin Southan
+              prediccion:
+                visitante: 1
+                local: 6
+              resultado:
+                visitante: 3
+                local: 5
+            - deporte: golf
+              fecha: 22/02/2020 08:55
+              visitante: Fleming Woakes
+              local: Allyn MacCome
+              prediccion:
+                visitante: 3
+                local: 8
+              resultado:
+                visitante: 2
+                local: 6
+            - deporte: ping-pong
+              fecha: 26/02/2020 10:50
+              visitante: Boycie Nickless
+              local: Claudius Bilborough
+              prediccion:
+                visitante: 8
+                local: 6
+              resultado:
+                visitante: 1
+                local: 5
+    - temporada: 2020-Q2
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: badminton
+              fecha: 13/02/2020 19:01
+              visitante: Wilie Sedgman
+              local: Ralf Adran
+              prediccion:
+                visitante: 4
+                local: 9
+              resultado:
+                visitante: 7
+                local: 3
+            - deporte: ping-pong
+              fecha: 13/02/2020 09:35
+              visitante: Roderick Lindemann
+              local: Sigismund Lucius
+              prediccion:
+                visitante: 2
+                local: 6
+              resultado:
+                visitante: 3
+                local: 6
+            - deporte: ping-pong
+              fecha: 10/02/2020 14:31
+              visitante: Karlotta Gooderridge
+              local: Sidoney Keller
+              prediccion:
+                visitante: 7
+                local: 1
+              resultado:
+                visitante: 0
+                local: 4
+            - deporte: badminton
+              fecha: 12/02/2020 19:53
+              visitante: Mirna Demer
+              local: Dalli Devin
+              prediccion:
+                visitante: 9
+                local: 5
+              resultado:
+                visitante: 8
+                local: 9
+            - deporte: golf
+              fecha: 08/02/2020 18:23
+              visitante: Cyndi Aldritt
+              local: Marlie Braunthal
+              prediccion:
+                visitante: 1
+                local: 5
+              resultado:
+                visitante: 4
+                local: 8
+        - jornada: J2
+          predicciones:
+            - deporte: badminton
+              fecha: 13/02/2020 19:01
+              visitante: Wilie Sedgman
+              local: Ralf Adran
+              prediccion:
+                visitante: 5
+                local: 7
+              resultado:
+                visitante: 7
+                local: 3
+            - deporte: ping-pong
+              fecha: 13/02/2020 09:35
+              visitante: Roderick Lindemann
+              local: Sigismund Lucius
+              prediccion:
+                visitante: 5
+                local: 3
+              resultado:
+                visitante: 3
+                local: 6
+            - deporte: ping-pong
+              fecha: 10/02/2020 14:31
+              visitante: Karlotta Gooderridge
+              local: Sidoney Keller
+              prediccion:
+                visitante: 4
+                local: 5
+              resultado:
+                visitante: 0
+                local: 4
+            - deporte: badminton
+              fecha: 12/02/2020 19:53
+              visitante: Mirna Demer
+              local: Dalli Devin
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 8
+                local: 9
+            - deporte: golf
+              fecha: 08/02/2020 18:23
+              visitante: Cyndi Aldritt
+              local: Marlie Braunthal
+              prediccion:
+                visitante: 0
+                local: 5
+              resultado:
+                visitante: 4
+                local: 8
+    - temporada: 2019-Q5
+      tier: silver
+      jornadas:
+        - jornada: J1
+          predicciones:
+            - deporte: volleyball
+              fecha: 22/05/2019 22:55
+              visitante: Accounting
+              local: Business Development
+              prediccion:
+                visitante: 4
+                local: 9
+              resultado:
+                visitante: 3
+                local: 8
+            - deporte: basketball
+              fecha: 27/05/2019 11:54
+              visitante: Human Resources
+              local: Training
+              prediccion:
+                visitante: 8
+                local: 7
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: volleyball
+              fecha: 25/05/2019 19:22
+              visitante: Support
+              local: Marketing
+              prediccion:
+                visitante: 9
+                local: 4
+              resultado:
+                visitante: 4
+                local: 8
+        - jornada: J2
+          predicciones:
+            - deporte: volleyball
+              fecha: 22/05/2019 22:55
+              visitante: Accounting
+              local: Business Development
+              prediccion:
+                visitante: 6
+                local: 9
+              resultado:
+                visitante: 3
+                local: 8
+            - deporte: basketball
+              fecha: 27/05/2019 11:54
+              visitante: Human Resources
+              local: Training
+              prediccion:
+                visitante: 3
+                local: 0
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: volleyball
+              fecha: 25/05/2019 19:22
+              visitante: Support
+              local: Marketing
+              prediccion:
+                visitante: 1
+                local: 2
+              resultado:
+                visitante: 4
+                local: 8
+        - jornada: J3
+          predicciones:
+            - deporte: volleyball
+              fecha: 22/05/2019 22:55
+              visitante: Accounting
+              local: Business Development
+              prediccion:
+                visitante: 7
+                local: 4
+              resultado:
+                visitante: 3
+                local: 8
+            - deporte: basketball
+              fecha: 27/05/2019 11:54
+              visitante: Human Resources
+              local: Training
+              prediccion:
+                visitante: 0
+                local: 7
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: volleyball
+              fecha: 25/05/2019 19:22
+              visitante: Support
+              local: Marketing
+              prediccion:
+                visitante: 2
+                local: 9
+              resultado:
+                visitante: 4
+                local: 8
+        - jornada: J4
+          predicciones:
+            - deporte: volleyball
+              fecha: 22/05/2019 22:55
+              visitante: Accounting
+              local: Business Development
+              prediccion:
+                visitante: 9
+                local: 8
+              resultado:
+                visitante: 3
+                local: 8
+            - deporte: basketball
+              fecha: 27/05/2019 11:54
+              visitante: Human Resources
+              local: Training
+              prediccion:
+                visitante: 7
+                local: 4
+              resultado:
+                visitante: 8
+                local: 2
+            - deporte: volleyball
+              fecha: 25/05/2019 19:22
+              visitante: Support
+              local: Marketing
+              prediccion:
+                visitante: 8
+                local: 1
+              resultado:
+                visitante: 4
+                local: 8
