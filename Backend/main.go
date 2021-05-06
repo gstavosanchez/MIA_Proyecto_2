@@ -65,6 +65,44 @@ type allMembresia []membresia
 
 var membresiaList = allMembresia{}
 
+/// Carga masiva
+
+type userLoadFile struct {
+	UserName string      `json:"username"`
+	Password string      `json:"password"`
+	Nombre   string      `json:"nombre"`
+	Apellido string      `json:"apellido"`
+	Results  []resultsLF `json:"resultados"`
+}
+type resultsLF struct {
+	Season   string       `json:"temporada"`
+	Tier     string       `json:"tier"`
+	Journeys []journeysLF `json:"jornadas"`
+}
+type journeysLF struct {
+	Journey     string          `json:"jornada"`
+	Predictions []predictionsLF `json:"predicciones"`
+}
+type predictionLF struct {
+	P_visitant int `json:"visitante"`
+	P_local    int `json:"local"`
+}
+
+type predictionsLF struct {
+	Sport      string       `json:"deporte"`
+	Date       string       `json:"fecha"`
+	Visit      string       `json:"visitante"`
+	Local      string       `json:"local"`
+	Prediction predictionLF `json:"prediccion"`
+	Result     resultLF     `json:"resultado"`
+}
+type resultLF struct {
+	R_visitant int `json:"visitante"`
+	R_local    int `json:"local"`
+}
+
+type dataLoadFile map[string]userLoadFile
+
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
 /* == == == == == == == == == == == SERVER == == == == == == == == == == == */
 func indexRouter(w http.ResponseWriter, r *http.Request) {
@@ -165,6 +203,48 @@ func signUpApi(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(newError)
 	}
 
+}
+
+// CARGA MASIVA API
+func cargaMasivaAPI(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprint(w, "Parameter for login invalids")
+	}
+	getTime("POST to: /api/cargamasiva")
+	var dataFile dataLoadFile
+	json.Unmarshal(reqBody, &dataFile)
+	//fmt.Println(dataFile)
+	execLoadFile(dataFile)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	var newError errorRequest
+	newError.Error = "Se ejecuto la operacion"
+	json.NewEncoder(w).Encode(newError)
+}
+
+// Load Carga masiva
+func execLoadFile(data dataLoadFile) {
+	for userKey, userValue := range data {
+		var newUser user
+		fmt.Println("ID:", userKey)
+		fmt.Println("usuario:", userValue.Nombre)
+		newUser.Nombre = userValue.Nombre
+		newUser.Apellido = userValue.Apellido
+		newUser.UserName = userValue.UserName
+		newUser.Password = userValue.Password
+		newUser.Email = userValue.UserName
+		newUser.FechaNacimiento = "01-01-2000"
+		fmt.Println("USUARIO")
+		fmt.Println(newUser)
+		// Resultados
+		for _, resultsValue := range userValue.Results {
+			fmt.Println(resultsValue.Season)
+			fmt.Println(resultsValue.Tier)
+			fmt.Println("-----")
+		}
+	}
 }
 
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
@@ -314,7 +394,67 @@ func main() {
 	router.HandleFunc("/api/signin", signInApi).Methods("POST")
 	router.HandleFunc("/api/signup", signUpApi).Methods("POST")
 
+	// CARGA MASIVA
+	router.HandleFunc("/api/cargamasiva", cargaMasivaAPI).Methods("POST")
+
 	fmt.Println("Server on port 4000")
 	handler := cors.Default().Handler(router)
 	log.Fatal(http.ListenAndServe(":4000", handler))
 }
+
+/* func loadTest(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var Carga Info
+	json.NewDecoder(r.Body).Decode(&Carga)
+
+	for key, element := range Carga {
+		fmt.Println("ID:", key)
+		fmt.Print("\t")
+		fmt.Println("Usuario:", element.User)
+		fmt.Print("\t")
+		fmt.Println("Clave:", element.Pass)
+		fmt.Print("\t")
+		fmt.Println("Nombre:", element.Name)
+		fmt.Print("\t")
+		fmt.Println("Apellido:", element.Last)
+		for _, element := range element.Results {
+			fmt.Print("\t")
+			fmt.Println("Resultados:")
+			fmt.Print("\t\t")
+			fmt.Println("Temporada:", element.Season)
+			fmt.Print("\t\t")
+			fmt.Println("Membresia:", element.Tier)
+			for _, element := range element.Journeys {
+				fmt.Print("\t\t")
+				fmt.Println("Jornadas:")
+				fmt.Print("\t\t\t")
+				fmt.Println("Jornada:", element.Journey)
+				for _, element := range element.Predictions {
+					fmt.Print("\t\t\t")
+					fmt.Println("Predicciones:")
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Deporte:", element.Sport)
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Local:", element.Local)
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Visitante:", element.Visit)
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Fecha:", element.Date)
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Prediccion:")
+					fmt.Print("\t\t\t\t\t")
+					fmt.Println("P Local:", element.Result.R_local)
+					fmt.Print("\t\t\t\t\t")
+					fmt.Println("P Visita:", element.Result.R_visitant)
+					fmt.Print("\t\t\t\t")
+					fmt.Println("Resultado:")
+					fmt.Print("\t\t\t\t\t")
+					fmt.Println("R Local:", element.Prediction.P_local)
+					fmt.Print("\t\t\t\t\t")
+					fmt.Println("R Visita:", element.Prediction.P_visitant)
+
+				}
+			}
+		}
+	}
+} */

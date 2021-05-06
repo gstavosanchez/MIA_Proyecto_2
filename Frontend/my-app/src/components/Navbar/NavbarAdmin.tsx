@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { uploadFile } from '../../services/FileService'
 import {
   AppBar,
   Button,
@@ -39,14 +40,16 @@ export const NavbarAdmin = () => {
   const handleUpload = async (e: InputChange) => {
     console.log(e.target.files)
     const readed:FileReader = new FileReader()
-    readed.onload = async(e) => {
-      const text = e.target?.result
-      console.log(text)
-    }
     if(e.target.files != null){
       readed.readAsText(e.target.files[0])
+      readed.onload = async(e) => {
+        const text = e.target?.result
+        const data:string = text ? text.toString(): ""
+        await uploadFile(data)
+      }
+      
     }
-  
+
   }
 
   return (
