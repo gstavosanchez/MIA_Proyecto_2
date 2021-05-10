@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
   AppBar,
@@ -25,6 +25,7 @@ export const NavbarClient = () => {
   const history = useHistory();
   const logOut = () => {
     localStorage.removeItem("userID");
+    localStorage.removeItem("TipoID");
     setLogged(false);
     setID(0);
     setTipo(0);

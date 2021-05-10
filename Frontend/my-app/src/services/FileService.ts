@@ -7,8 +7,9 @@ export const uploadFile = async (dataStr: string) => {
   try {
     const data = yaml.load(dataStr);
     newJSON = JSON.stringify(data);
-    const res =  await setJSON(newJSON)
-    console.log(res)
+    console.log(newJSON)
+    //const res =  await setJSON(newJSON)
+    //console.log(res)
   } catch (error) {
     console.log(error);
   }

@@ -17,3 +17,13 @@ export const signUp = async (user: IUser) => {
     },
   });
 };
+
+export const getLocalUser = ():string => {
+  
+  const data = localStorage.getItem("userID")
+  return data? data:"" 
+}
+export const getLocalTipo = ():string => {
+  const data = localStorage.getItem("TipoID")
+  return data? data:"" 
+}

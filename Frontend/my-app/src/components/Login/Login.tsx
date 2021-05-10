@@ -62,6 +62,7 @@ export const Login = () => {
       if (users.length === 1) {
         if(users[0].ID === undefined) return
         localStorage.setItem('userID',users[0].ID.toString())
+        localStorage.setItem('TipoID',users[0].Tipo.toString())
         setTipo(users[0].Tipo)
         setLogged(true)
         setID(users[0].ID)

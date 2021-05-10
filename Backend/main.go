@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	_ "github.com/godror/godror"
@@ -64,6 +65,88 @@ type membresia struct {
 type allMembresia []membresia
 
 var membresiaList = allMembresia{}
+
+// Deporte
+type deporte struct {
+	ID     int    `json:"ID"`
+	Nombre string `json:"Nombre"`
+	Imagen string `json:"Imagen"`
+	Color  string `json:"Color"`
+}
+type allDeporte []deporte
+
+var deporteList = allDeporte{}
+
+// Temporada
+type temporada struct {
+	ID          int    `json:"ID"`
+	Nombre      string `json:"Nombre"`
+	FechaInicio string `json:"FechaInicio"`
+	FechaFin    string `json:"FechaFin"`
+	Estado      int    `json:"Estado"`
+}
+type allTemporada []temporada
+
+var temporadaList = allTemporada{}
+
+// Jornada
+type jornada struct {
+	ID          int    `json:"ID"`
+	Nombre      string `json:"Nombre"`
+	Estado      int    `json:"Estado"`
+	FechaInicio string `json:"FechaInicio"`
+	FechaFin    string `json:"FechaFin"`
+	TemporadaID int    `json:"TemporadaID"`
+	Temporada   string `json:"Temporada"`
+}
+type allJornada []jornada
+
+var jornadaList = allJornada{}
+
+// Evento
+type evento struct {
+	ID                 int    `json:"ID"`
+	Estado             int    `json:"Estado"`
+	Fecha              string `json:"Fecha"`
+	DateTime           string `json:"DateTime"`
+	EquipoLocal        string `json:"EquipoLocal"`
+	EquipoVisitante    string `json:"EquipoVisitante"`
+	ResultadoLocal     int    `json:"ResultadoLocal"`
+	ResultadoVisitante int    `json:"ResultadoVisitante"`
+	DeporteID          int    `json:"DeporteID"`
+	JornadaID          int    `json:"JornadaID"`
+	Deporte            string `json:"Deporte"`
+	Jornada            string `json:"Jornada"`
+	Temporada          string `json:"Temporada"`
+}
+type allEvento []evento
+
+var eventoList = allEvento{}
+
+// Prediccion
+type prediccion struct {
+	ID                  int    `json:"ID"`
+	PrediccionLocal     int    `json:"Local"`
+	PrediccionVisitante int    `json:"Visitante"`
+	EventoID            int    `json:"EventoID"`
+	UsuarioID           int    `json:"UsuarioID"`
+	Usuario             string `json:"Usuario"`
+	Deporte             string `json:"Deporte"`
+	Jornada             string `json:"Jornada"`
+	Temporada           string `json:"Temporada"`
+	EquipoLocal         string `json:"EquipoLocal"`
+	EquipoVisitante     string `json:"EquipoVistante"`
+}
+type allPrediccion []prediccion
+
+var prediccionList = allPrediccion{}
+
+// Detalle Usuario
+type detalleUsuario struct {
+	Usuario   string `json:"Usuario"`
+	Temporada string `json:"Temporada"`
+	Membresia string `json:"Membresia"`
+}
 
 /// Carga masiva
 
@@ -205,6 +288,42 @@ func signUpApi(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// == == EVENTO == ==
+func getEventoApi(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/evento")
+	getEventoDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(eventoList)
+}
+
+// == == DEPORTE == ==
+func getDeporteApi(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/deporte")
+	getDeporteDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(deporteList)
+}
+
+// == == TEMPORADA == ==
+func getTemporadaApi(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/temporada")
+	getTemporadaDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(temporadaList)
+}
+
+// == == JORNADA == ==
+func getJornadaApi(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/jornada")
+	getJornadaDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(jornadaList)
+}
+
 // CARGA MASIVA API
 func cargaMasivaAPI(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
@@ -236,15 +355,103 @@ func execLoadFile(data dataLoadFile) {
 		newUser.Password = userValue.Password
 		newUser.Email = userValue.UserName
 		newUser.FechaNacimiento = "01-01-2000"
-		fmt.Println("USUARIO")
-		fmt.Println(newUser)
-		// Resultados
 		for _, resultsValue := range userValue.Results {
-			fmt.Println(resultsValue.Season)
-			fmt.Println(resultsValue.Tier)
 			fmt.Println("-----")
+			var newSeason temporada
+			var newDetalle detalleUsuario
+			newUser.Membresia = getIdMembresia(resultsValue.Tier)
+			newSeason.Nombre = resultsValue.Season
+			newSeason.FechaInicio = getDateSeason(resultsValue.Season)
+			newDetalle.Usuario = newUser.UserName
+			newDetalle.Temporada = resultsValue.Season
+			newDetalle.Membresia = resultsValue.Tier
+			fmt.Println("USUARIO:", newUser)
+			setUsuarioDBLF(newUser)
+			fmt.Println("Temporada:", newSeason)
+			setTemporadaDB(newSeason)
+			fmt.Println("Detalle:", newDetalle)
+			// Mandar a guardar Usuario,detalleUsuario,temporada
+			for _, jornadasValue := range resultsValue.Journeys {
+				fmt.Println("***********************")
+				var newJornada jornada
+				newJornada.Nombre = jornadasValue.Journey
+				newJornada.Temporada = newSeason.Nombre
+				fmt.Println("Jornada:", newJornada)
+				setJornadaDB(newJornada)
+				for _, predictionValue := range jornadasValue.Predictions {
+					fmt.Println("=============================================")
+					/* == == DEPORTE == == */
+					var newDeporte deporte
+					newDeporte.Nombre = predictionValue.Sport
+					fmt.Println("Deporte:", newDeporte)
+					setDeporteDB(newDeporte)
+					/* == == EVENTO == == */
+					var newEvento evento
+					newEvento.Fecha = getDateEvent(predictionValue.Date)
+					newEvento.DateTime = strings.ReplaceAll(predictionValue.Date, "/", "-")
+					newEvento.EquipoLocal = predictionValue.Local
+					newEvento.EquipoVisitante = predictionValue.Visit
+					newEvento.ResultadoLocal = predictionValue.Result.R_local
+					newEvento.ResultadoVisitante = predictionValue.Result.R_visitant
+					newEvento.Deporte = newDeporte.Nombre
+					newEvento.Jornada = newJornada.Nombre
+					newEvento.Temporada = newSeason.Nombre
+					fmt.Println("Evento:", newEvento)
+					setEventoDB(newEvento)
+					/* == == PREDICCION == == */
+					var newPrediction prediccion
+					newPrediction.PrediccionLocal = predictionValue.Prediction.P_local
+					newPrediction.PrediccionVisitante = predictionValue.Prediction.P_visitant
+					newPrediction.Deporte = newDeporte.Nombre
+					newPrediction.Jornada = newJornada.Nombre
+					newPrediction.Temporada = newSeason.Nombre
+					newPrediction.EquipoLocal = newEvento.EquipoLocal
+					newPrediction.EquipoVisitante = newEvento.EquipoVisitante
+					newPrediction.Usuario = newUser.UserName
+					fmt.Println("Prediccion:", newPrediction)
+					setPredictionDB(newPrediction)
+				}
+
+			}
+
 		}
 	}
+}
+func getIdMembresia(tier string) int {
+	switch strings.ToLower(tier) {
+	case "gold":
+		return 1
+	case "silver":
+		return 2
+	case "bronze":
+		return 3
+	default:
+		return 4
+	}
+}
+func getDateSeason(name string) string {
+	// 2019-Q2
+	var year, month string
+	date := ""
+	split := strings.Split(name, "-")
+	year = split[0]
+	month = strings.ReplaceAll(split[1], "Q", "")
+	numMonth, err := strconv.Atoi(month)
+	if err != nil {
+		return ""
+	}
+	if numMonth <= 9 {
+		month = "0" + month
+	}
+	date = "01-" + month + "-" + year
+	return date
+}
+func getDateEvent(dateTime string) string {
+	// 05/03/2018 11:58
+	date := ""
+	split := strings.Split(dateTime, " ")
+	date = strings.ReplaceAll(split[0], "/", "-")
+	return date
 }
 
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
@@ -355,6 +562,138 @@ func getMembresiaDB() {
 	}
 	defer rows.Close()
 }
+func getEventoDB() {
+	var event evento
+	eventoList = allEvento{}
+	rows, err := database.Query("SELECT * FROM EVENTO")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&event.ID, &event.Estado, &event.Fecha, &event.EquipoLocal,
+			&event.EquipoVisitante, &event.ResultadoLocal, &event.ResultadoVisitante,
+			&event.DeporteID, &event.JornadaID)
+		eventoList = append(eventoList, event)
+	}
+	defer rows.Close()
+
+}
+func getDeporteDB() {
+	var sport deporte
+	deporteList = allDeporte{}
+	rows, err := database.Query("SELECT * FROM DEPORTE")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&sport.ID, &sport.Nombre, &sport.Imagen, &sport.Color)
+		deporteList = append(deporteList, sport)
+	}
+	defer rows.Close()
+
+}
+func getJornadaDB() {
+	var journal jornada
+	jornadaList = allJornada{}
+	rows, err := database.Query("SELECT * FROM JORNADA")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&journal.ID, &journal.Nombre, &journal.Estado,
+			&journal.FechaInicio, &journal.FechaFin, &journal.TemporadaID)
+		jornadaList = append(jornadaList, journal)
+	}
+	defer rows.Close()
+
+}
+func getTemporadaDB() {
+	var season temporada
+	temporadaList = allTemporada{}
+	rows, err := database.Query("SELECT * FROM TEMPORADA")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&season.ID, &season.Nombre, &season.FechaInicio,
+			&season.FechaFin, &season.Estado)
+		temporadaList = append(temporadaList, season)
+	}
+	defer rows.Close()
+
+}
+
+/* == == == == == == == == == == == CARGA MASIVA == == == == == == == == == == == */
+/* == == USUARIO == == */
+func setUsuarioDBLF(newUser user) {
+	_, err := database.Exec("call sp_insert_usuario_carga_masiva(:1,:2,:3,:4,:5,:6,:7)",
+		newUser.UserName, newUser.Password, newUser.Nombre,
+		newUser.Apellido, newUser.FechaNacimiento, newUser.Email,
+		newUser.Membresia)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+}
+
+/* == == TEMPORADA == == */
+func setTemporadaDB(season temporada) {
+	_, err := database.Exec("call sp_insert_temporada(:1,:2)", season.Nombre, season.FechaInicio)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+}
+
+/* == == JORNADA == == */
+func setJornadaDB(journaley jornada) {
+	_, err := database.Exec("call sp_insert_jornada(:1,:2)", journaley.Nombre, journaley.Temporada)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+
+}
+
+/* == == DEPORTE == == */
+func setDeporteDB(sport deporte) {
+	_, err := database.Exec("call sp_insert_deporte(:1)", sport.Nombre)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+}
+
+/* == == EVENTO == == */
+func setEventoDB(event evento) {
+	_, err := database.Exec("call sp_insert_evento(:1,:2,:3,:4,:5,:6,:7,:8,:9)",
+		event.Fecha, event.DateTime, event.EquipoLocal,
+		event.EquipoVisitante, event.ResultadoLocal, event.ResultadoVisitante,
+		event.Deporte, event.Jornada, event.Temporada)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+
+}
+func setPredictionDB(prediction prediccion) {
+	_, err := database.Exec("call sp_insert_prediccion(:1,:2,:3,:4,:5,:6,:7,:8)",
+		prediction.PrediccionLocal, prediction.PrediccionVisitante, prediction.Usuario,
+		prediction.Deporte, prediction.Jornada, prediction.Temporada,
+		prediction.EquipoLocal, prediction.EquipoVisitante)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+}
 
 /* == == == == == == == == == == == == == == == == == == == == == == == == */
 func getTime(data string) {
@@ -394,6 +733,18 @@ func main() {
 	router.HandleFunc("/api/signin", signInApi).Methods("POST")
 	router.HandleFunc("/api/signup", signUpApi).Methods("POST")
 
+	// EVENTO
+	router.HandleFunc("/api/evento", getEventoApi).Methods("GET")
+
+	// DEPORTE
+	router.HandleFunc("/api/deporte", getDeporteApi).Methods("GET")
+
+	// TEMPORADA
+	router.HandleFunc("/api/temporada", getTemporadaApi).Methods("GET")
+
+	// JORNADA
+	router.HandleFunc("/api/jornada", getJornadaApi).Methods("GET")
+
 	// CARGA MASIVA
 	router.HandleFunc("/api/cargamasiva", cargaMasivaAPI).Methods("POST")
 
@@ -401,60 +752,3 @@ func main() {
 	handler := cors.Default().Handler(router)
 	log.Fatal(http.ListenAndServe(":4000", handler))
 }
-
-/* func loadTest(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	var Carga Info
-	json.NewDecoder(r.Body).Decode(&Carga)
-
-	for key, element := range Carga {
-		fmt.Println("ID:", key)
-		fmt.Print("\t")
-		fmt.Println("Usuario:", element.User)
-		fmt.Print("\t")
-		fmt.Println("Clave:", element.Pass)
-		fmt.Print("\t")
-		fmt.Println("Nombre:", element.Name)
-		fmt.Print("\t")
-		fmt.Println("Apellido:", element.Last)
-		for _, element := range element.Results {
-			fmt.Print("\t")
-			fmt.Println("Resultados:")
-			fmt.Print("\t\t")
-			fmt.Println("Temporada:", element.Season)
-			fmt.Print("\t\t")
-			fmt.Println("Membresia:", element.Tier)
-			for _, element := range element.Journeys {
-				fmt.Print("\t\t")
-				fmt.Println("Jornadas:")
-				fmt.Print("\t\t\t")
-				fmt.Println("Jornada:", element.Journey)
-				for _, element := range element.Predictions {
-					fmt.Print("\t\t\t")
-					fmt.Println("Predicciones:")
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Deporte:", element.Sport)
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Local:", element.Local)
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Visitante:", element.Visit)
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Fecha:", element.Date)
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Prediccion:")
-					fmt.Print("\t\t\t\t\t")
-					fmt.Println("P Local:", element.Result.R_local)
-					fmt.Print("\t\t\t\t\t")
-					fmt.Println("P Visita:", element.Result.R_visitant)
-					fmt.Print("\t\t\t\t")
-					fmt.Println("Resultado:")
-					fmt.Print("\t\t\t\t\t")
-					fmt.Println("R Local:", element.Prediction.P_local)
-					fmt.Print("\t\t\t\t\t")
-					fmt.Println("R Visita:", element.Prediction.P_visitant)
-
-				}
-			}
-		}
-	}
-} */

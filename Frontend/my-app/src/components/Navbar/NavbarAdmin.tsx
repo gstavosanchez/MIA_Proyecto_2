@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
+import React, { ChangeEvent, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { uploadFile } from '../../services/FileService'
 import {
@@ -31,6 +31,7 @@ export const NavbarAdmin = () => {
   const history = useHistory();
   const logOut = () => {
     localStorage.removeItem("userID");
+    localStorage.removeItem("TipoID");
     setLogged(false);
     setID(0);
     setTipo(0);
