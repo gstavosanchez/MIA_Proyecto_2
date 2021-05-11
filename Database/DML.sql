@@ -130,4 +130,8 @@ select * from JORNADA j
 inner join TEMPORADA t on j.temporada_ID = t.temporada_ID
 WHERE j.NOMBRE = 'J2' AND t.NOMBRE = '2018-Q10';
 
+DELETE FROM DEPORTE WHERE DEPORTE_ID
 
+UPDATE DEPORTE SET NOMBRE = para,
+                  COLOR = PARAM
+WHERE DEPORTE_ID = dfsa

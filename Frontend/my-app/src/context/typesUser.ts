@@ -19,3 +19,18 @@ export interface IUserContext {
     setLogged (flag:boolean):void
     setID(id:number):void 
 }
+
+export type sportActionType = {type:'SET_ID',payload:number}
+                            | {type:'SET_FLAG',payload:boolean}
+
+export type sportState = {
+    sportID:number,
+    isUpdate:boolean
+}
+
+export interface ISportContext {
+    sportID:number;
+    isUpdate:boolean;
+    setSportID:(id:number) => void;
+    setIsUpdate:(flag:boolean) => void;
+}

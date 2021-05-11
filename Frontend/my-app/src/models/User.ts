@@ -1,11 +1,11 @@
 export interface IUser {
-    ID?:number,
+    ID:number,
 	UserName:string,        
 	Password:string,        
 	Nombre:string,          
 	Apellido:string,        
 	FechaNacimiento:string, 
-	FechaRegistro?:string | Date,   
+	FechaRegistro:string,   
 	Email:string            
 	FotoPerfil:string,      
 	Tipo:number            

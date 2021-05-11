@@ -8,7 +8,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import { Home } from "@material-ui/icons";
+import { Home,FaceRounded,StorefrontTwoTone } from "@material-ui/icons";
 import { UserContext } from "../../context/user/UserContext";
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -41,15 +41,18 @@ export const NavbarClient = () => {
             aria-label="menu"
             className={clasStyle.menuButton}
             component={Link}
-            to="/"
+            to="/dashboard"
           >
             <Home />
           </IconButton>
           <Typography variant="h6" className={clasStyle.tittle}>
             QUINIELA
           </Typography>
-          <Button component={Link} to="/signup" color="inherit" variant="text">
-            Client
+          <Button component={Link} to="/buy-member" color="inherit" variant="text" startIcon={<StorefrontTwoTone />}>
+            Tienda
+          </Button>
+          <Button component={Link} to="/profile" color="inherit" variant="text" startIcon={<FaceRounded />}>
+            Mi Perfil
           </Button>
           <Button color="inherit" variant="text" onClick={logOut}>
             Sign Out

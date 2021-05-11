@@ -223,7 +223,6 @@ func getUserApi(w http.ResponseWriter, r *http.Request) {
 // Get usuario by id
 func getUserByIDAPI(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	getTime("GET to: /api/user/id")
 
 	w.Header().Set("Content-Type", "application/json")
 	userID, err := strconv.Atoi(vars["id"])
@@ -234,9 +233,10 @@ func getUserByIDAPI(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(newError)
 		return
 	}
-	getUserByIdDB(userID)
+	getTime("GET to: /api/user/" + strconv.Itoa(userID))
+	userNew := getUserByIdDB(userID)
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(userList)
+	json.NewEncoder(w).Encode(userNew)
 
 }
 
@@ -297,6 +297,113 @@ func getEventoApi(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(eventoList)
 }
 
+func getEventoByIdApi(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	w.Header().Set("Content-Type", "application/json")
+	eventID, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		var newError errorRequest
+		newError.Error = "Invalid ID"
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(newError)
+		return
+	}
+	idEvent := strconv.Itoa(eventID)
+	getTime("GET to: /api/evento/" + idEvent)
+	eventNow := getEventByIdDB(idEvent)
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(eventNow)
+}
+func getDeporteByIdApi(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	w.Header().Set("Content-Type", "application/json")
+	sportID, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		var newError errorRequest
+		newError.Error = "Invalid ID"
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(newError)
+		return
+	}
+	idSport := strconv.Itoa(sportID)
+	getTime("GET to: /api/deporte/" + idSport)
+	sportNow := getDeporteByIdDB(idSport)
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(sportNow)
+}
+func createDeporteApi(w http.ResponseWriter, r *http.Request) {
+	var newSport deporte
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprint(w, "Parameter for login invalids")
+	}
+	json.Unmarshal(reqBody, &newSport)
+	w.Header().Set("Content-Type", "application/json")
+	getTime("POST to: /api/deporte")
+	status := createDeporteDB(newSport)
+	if status {
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(newSport)
+	} else {
+		var tempSport deporte
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(tempSport)
+	}
+}
+func deleteDeporteApi(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	w.Header().Set("Content-Type", "application/json")
+	sportID, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		var newError errorRequest
+		newError.Error = "Invalid ID"
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(newError)
+		return
+	}
+	idSport := strconv.Itoa(sportID)
+	getTime("DELETE to: /api/deporte/" + idSport)
+	status := deleteDeporteDB(idSport)
+	if status {
+		var newError errorRequest
+		newError.Error = "true"
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(newError)
+	} else {
+		var newError errorRequest
+		newError.Error = "false"
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(newError)
+	}
+}
+func updateDeporteApi(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	w.Header().Set("Content-Type", "application/json")
+	sportID, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		var newError errorRequest
+		newError.Error = "Invalid ID"
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(newError)
+		return
+	}
+	idSport := strconv.Itoa(sportID)
+	var newSport deporte
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprint(w, "Parameter for login invalids")
+	}
+	json.Unmarshal(reqBody, &newSport)
+	getTime("UPDATE to: /api/deporte/" + idSport)
+	status := updateDeporteDB(idSport, newSport)
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(status)
+}
+
 // == == DEPORTE == ==
 func getDeporteApi(w http.ResponseWriter, r *http.Request) {
 	getTime("GET to: /api/deporte")
@@ -318,6 +425,16 @@ func getTemporadaApi(w http.ResponseWriter, r *http.Request) {
 // == == JORNADA == ==
 func getJornadaApi(w http.ResponseWriter, r *http.Request) {
 	getTime("GET to: /api/jornada")
+	getJornadaDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(jornadaList)
+}
+
+// == == PREDICCION == ==
+// getPrediccionApi
+func getPrediccionApi(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/prediccion")
 	getJornadaDB()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
@@ -497,7 +614,7 @@ func getDBUser() {
 	}
 	defer rows.Close()
 }
-func getUserByIdDB(id int) {
+func getUserByIdDB(id int) user {
 	var userNew user
 	userList = allUser{}
 	idStr := strconv.FormatInt(int64(id), 10)
@@ -506,7 +623,7 @@ func getUserByIdDB(id int) {
 	if err != nil {
 		fmt.Println("Error running query")
 		fmt.Println(err)
-		return
+		return userNew
 	}
 	for rows.Next() {
 		rows.Scan(&userNew.ID, &userNew.UserName, &userNew.Password, &userNew.Nombre,
@@ -515,6 +632,7 @@ func getUserByIdDB(id int) {
 		userList = append(userList, userNew)
 	}
 	defer rows.Close()
+	return userNew
 }
 func signInDB(username, password string) {
 	var userNew user
@@ -580,6 +698,25 @@ func getEventoDB() {
 	defer rows.Close()
 
 }
+func getEventByIdDB(id string) evento {
+	var event evento
+	query := "SELECT * FROM EVENTO where evento_ID =" + id
+	eventoList = allEvento{}
+	rows, err := database.Query(query)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return event
+	}
+	for rows.Next() {
+		rows.Scan(&event.ID, &event.Estado, &event.Fecha, &event.EquipoLocal,
+			&event.EquipoVisitante, &event.ResultadoLocal, &event.ResultadoVisitante,
+			&event.DeporteID, &event.JornadaID)
+		eventoList = append(eventoList, event)
+	}
+	defer rows.Close()
+	return event
+}
 func getDeporteDB() {
 	var sport deporte
 	deporteList = allDeporte{}
@@ -595,6 +732,54 @@ func getDeporteDB() {
 	}
 	defer rows.Close()
 
+}
+func getDeporteByIdDB(id string) deporte {
+	var sport deporte
+	deporteList = allDeporte{}
+	query := "SELECT * FROM DEPORTE WHERE DEPORTE_ID =" + id
+	rows, err := database.Query(query)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return sport
+	}
+	for rows.Next() {
+		rows.Scan(&sport.ID, &sport.Nombre, &sport.Imagen, &sport.Color)
+		deporteList = append(deporteList, sport)
+	}
+	defer rows.Close()
+	return sport
+}
+func createDeporteDB(sport deporte) bool {
+	_, err := database.Exec("INSERT INTO Deporte(NOMBRE,COLOR) VALUES(:1,:2)",
+		sport.Nombre, sport.Color)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return false
+	}
+	return true
+}
+func updateDeporteDB(id string, sport deporte) deporte {
+	var sportTemp deporte
+	_, err := database.Exec("UPDATE DEPORTE SET NOMBRE = :1, COLOR = :2  WHERE DEPORTE_ID = :3",
+		sport.Nombre, sport.Color, id)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return sportTemp
+	}
+	return sport
+}
+func deleteDeporteDB(id string) bool {
+	query := "DELETE FROM DEPORTE WHERE DEPORTE_ID = " + id
+	_, err := database.Exec(query)
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return false
+	}
+	return true
 }
 func getJornadaDB() {
 	var journal jornada
@@ -735,9 +920,14 @@ func main() {
 
 	// EVENTO
 	router.HandleFunc("/api/evento", getEventoApi).Methods("GET")
+	router.HandleFunc("/api/evento/{id}", getEventoByIdApi).Methods("GET")
 
 	// DEPORTE
 	router.HandleFunc("/api/deporte", getDeporteApi).Methods("GET")
+	router.HandleFunc("/api/deporte/{id}", getDeporteByIdApi).Methods("GET")
+	router.HandleFunc("/api/deporte", createDeporteApi).Methods("POST")
+	router.HandleFunc("/api/deporte/{id}", updateDeporteApi).Methods("PUT")
+	router.HandleFunc("/api/deporte/{id}", deleteDeporteApi).Methods("DELETE")
 
 	// TEMPORADA
 	router.HandleFunc("/api/temporada", getTemporadaApi).Methods("GET")
@@ -745,10 +935,19 @@ func main() {
 	// JORNADA
 	router.HandleFunc("/api/jornada", getJornadaApi).Methods("GET")
 
+	// Prediccion
+	router.HandleFunc("/api/prediccion", getPrediccionApi).Methods("GET")
+
 	// CARGA MASIVA
 	router.HandleFunc("/api/cargamasiva", cargaMasivaAPI).Methods("POST")
 
 	fmt.Println("Server on port 4000")
-	handler := cors.Default().Handler(router)
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "DELETE", "POST", "PUT"},
+	})
+	//handler := cors.Default().Handler(router)
+	handler := c.Handler(router)
 	log.Fatal(http.ListenAndServe(":4000", handler))
 }

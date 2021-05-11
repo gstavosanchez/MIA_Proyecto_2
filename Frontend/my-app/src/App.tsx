@@ -15,6 +15,9 @@ import { Index } from "./components/Index/Index";
 import { Dashboard } from "./components/Dashboard/Dashboard";
 import { UserState } from "./context/user/UserState";
 import { BuyMembresia } from "./components/Buy/BuyMembresia";
+import { EventCalendar } from "./components/Event/EventCalendar";
+import { MyProfile } from "./components/Profile/MyProfile";
+import { SportList } from "./components/Deporte/SportList";
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -32,6 +35,9 @@ function App() {
             <Route path="/signup" exact component={SignUp} />
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/buy-member" exact component={BuyMembresia} />
+            <Route path="/profile" exact component={MyProfile} />
+            <Route path="/calendar/:id" exact component={EventCalendar} />
+            <Route path="/sport" exact component={SportList} />
           </Switch>
         </UserState>
       </ThemeProvider>

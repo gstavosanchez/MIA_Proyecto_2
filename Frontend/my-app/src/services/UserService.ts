@@ -18,6 +18,14 @@ export const signUp = async (user: IUser) => {
   });
 };
 
+export const getUser = async (id:string) => {
+  return await axios.get<IUser>(`${API}/user/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 export const getLocalUser = ():string => {
   
   const data = localStorage.getItem("userID")
