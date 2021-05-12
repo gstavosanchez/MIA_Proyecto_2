@@ -67,7 +67,7 @@ export const SportItem = ({ sport, loadSport }: IProps) => {
               aria-label="settings"
               onClick={() => handleDelete(sport.ID)}
             >
-              <DeleteRounded/>
+              <DeleteRounded color="secondary"/>
             </IconButton>
           }
           title={`Sport - ${sport.ID}`}

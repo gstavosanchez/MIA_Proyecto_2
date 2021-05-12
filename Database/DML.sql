@@ -62,17 +62,25 @@ call sp_insert_evento('01-02-2021','01-02-2021 10:47','barcelona','real madrid',
 
 CALL sp_insert_prediccion(3,2,'lana_rhoades','futbol','J1','2021-Q2','barcelona','real madrid');
 
-select * from usuario;
+select * from usuario ORDER by USER_NAME;
+select COUNT(*) from Usuario;
 select * from DEPORTE;
 select * from TEMPORADA;
+select COUNT(*) from TEMPORADA;
+select * from DetalleUsuario;
+SELECT COUNT(*) FROM DetalleUsuario;
 select * from JORNADA;
+SELECT COUNT(*) FROM JORNADA;
 select * from EVENTO;
+select COUNT(*) from EVENTO;
 select * from PREDICCION;
+select COUNT(*) from PREDICCION;
 
 
 drop table  usuario;
 drop table  DEPORTE;
 drop table  TEMPORADA;
+drop table DetalleUsuario;
 drop table  JORNADA;
 drop table  EVENTO;
 drop table  PREDICCION;
@@ -135,3 +143,13 @@ DELETE FROM DEPORTE WHERE DEPORTE_ID
 UPDATE DEPORTE SET NOMBRE = para,
                   COLOR = PARAM
 WHERE DEPORTE_ID = dfsa
+
+
+
+-- Total por membresia
+SELECT u.USER_NAME, m.NOMBRE,m.PRECIO,t.NOMBRE
+FROM DetalleUsuario du
+INNER JOIN USUARIO u ON du.USUARIO_ID = u.USUARIO_ID
+INNER JOIN TEMPORADA t ON du.TEMPORADA_ID = t.TEMPORADA_ID
+INNER JOIN MEMBRESIA m ON du.MEMBRESIA_ID = m. MEMBRESIA_ID
+WHERE t.NOMBRE = '2019-Q4';

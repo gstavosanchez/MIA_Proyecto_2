@@ -9,7 +9,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import { Home,CloudUpload, FaceRounded,SportsEsportsRounded } from "@material-ui/icons";
+import { Home,CloudUpload, FaceRounded,SportsEsportsRounded,CategoryOutlined } from "@material-ui/icons";
 import { UserContext } from "../../context/user/UserContext";
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -82,6 +82,9 @@ export const NavbarAdmin = () => {
               Upload
             </Button>
           </label>
+          <Button component={Link} to="/result" color="inherit" variant="text" startIcon={<CategoryOutlined />}>
+            Resultados
+          </Button>
           <Button component={Link} to="/sport" color="inherit" variant="text" startIcon={<SportsEsportsRounded />}>
             Deporte
           </Button>

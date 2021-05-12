@@ -41,7 +41,12 @@ export const paperStyle = {
   margin: "20px auto",
 };
 
-
+export const paperResult = {
+  padding: 15,
+  height: "75vH",
+  width: "160vH",
+  margin: "15px auto",
+};
 export const paperSport = {
   padding: 20,
   height: "48vH",

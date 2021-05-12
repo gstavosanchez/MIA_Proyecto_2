@@ -141,12 +141,24 @@ type allPrediccion []prediccion
 
 var prediccionList = allPrediccion{}
 
-// Detalle Usuario
-type detalleUsuario struct {
-	Usuario   string `json:"Usuario"`
+// Total por temporada
+type totalSeason struct {
+	Total     int    `json:"Total"`
+	Temporada string `json:"Temporada"`
+}
+type allTotalSeson []totalSeason
+
+var totaSesonList = allTotalSeson{}
+
+// No usuarios por temporada y membresia
+type userByTier struct {
+	NoUsers   int    `json:"NoUsers"`
 	Temporada string `json:"Temporada"`
 	Membresia string `json:"Membresia"`
 }
+type allUserByTier []userByTier
+
+var userByTierList = allUserByTier{}
 
 /// Carga masiva
 
@@ -156,6 +168,13 @@ type userLoadFile struct {
 	Nombre   string      `json:"nombre"`
 	Apellido string      `json:"apellido"`
 	Results  []resultsLF `json:"resultados"`
+}
+
+// Detalle Usuario
+type detalleUsuario struct {
+	Usuario   string `json:"Usuario"`
+	Temporada string `json:"Temporada"`
+	Membresia string `json:"Membresia"`
 }
 type resultsLF struct {
 	Season   string       `json:"temporada"`
@@ -404,6 +423,21 @@ func updateDeporteApi(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(status)
 }
 
+func getTotalBySeasonAPI(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/totaltemporada")
+	getTotalBySeasonDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(totaSesonList)
+}
+func getUsersByTierSeasonAPI(w http.ResponseWriter, r *http.Request) {
+	getTime("GET to: /api/usuariosmembresia")
+	getUsersByTierSeasonDB()
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(userByTierList)
+}
+
 // == == DEPORTE == ==
 func getDeporteApi(w http.ResponseWriter, r *http.Request) {
 	getTime("GET to: /api/deporte")
@@ -473,7 +507,7 @@ func execLoadFile(data dataLoadFile) {
 		newUser.Email = userValue.UserName
 		newUser.FechaNacimiento = "01-01-2000"
 		for _, resultsValue := range userValue.Results {
-			fmt.Println("-----")
+			fmt.Println("=============================================")
 			var newSeason temporada
 			var newDetalle detalleUsuario
 			newUser.Membresia = getIdMembresia(resultsValue.Tier)
@@ -487,16 +521,17 @@ func execLoadFile(data dataLoadFile) {
 			fmt.Println("Temporada:", newSeason)
 			setTemporadaDB(newSeason)
 			fmt.Println("Detalle:", newDetalle)
+			setDetalleUsuario(newDetalle)
 			// Mandar a guardar Usuario,detalleUsuario,temporada
 			for _, jornadasValue := range resultsValue.Journeys {
-				fmt.Println("***********************")
+				fmt.Println("*******************************")
 				var newJornada jornada
 				newJornada.Nombre = jornadasValue.Journey
 				newJornada.Temporada = newSeason.Nombre
 				fmt.Println("Jornada:", newJornada)
 				setJornadaDB(newJornada)
 				for _, predictionValue := range jornadasValue.Predictions {
-					fmt.Println("=============================================")
+					fmt.Println("____________________")
 					/* == == DEPORTE == == */
 					var newDeporte deporte
 					newDeporte.Nombre = predictionValue.Sport
@@ -816,6 +851,37 @@ func getTemporadaDB() {
 
 }
 
+func getTotalBySeasonDB() {
+	var total totalSeason
+	totaSesonList = allTotalSeson{}
+	rows, err := database.Query("SELECT * FROM view_total_por_temporada")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&total.Total, &total.Temporada)
+		totaSesonList = append(totaSesonList, total)
+	}
+	defer rows.Close()
+}
+func getUsersByTierSeasonDB() {
+	var count userByTier
+	userByTierList = allUserByTier{}
+	rows, err := database.Query("SELECT * FROM view_no_user_por_membresia_temporada")
+	if err != nil {
+		fmt.Println("Error running query")
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		rows.Scan(&count.NoUsers, &count.Temporada, &count.Membresia)
+		userByTierList = append(userByTierList, count)
+	}
+	defer rows.Close()
+}
+
 /* == == == == == == == == == == == CARGA MASIVA == == == == == == == == == == == */
 /* == == USUARIO == == */
 func setUsuarioDBLF(newUser user) {
@@ -823,6 +889,16 @@ func setUsuarioDBLF(newUser user) {
 		newUser.UserName, newUser.Password, newUser.Nombre,
 		newUser.Apellido, newUser.FechaNacimiento, newUser.Email,
 		newUser.Membresia)
+	if err != nil {
+		fmt.Println("Error in Query:", err)
+		return
+	}
+}
+
+/* == == DETALLE_USUARIO == == */
+func setDetalleUsuario(newDet detalleUsuario) {
+	_, err := database.Exec("call sp_insert_detalle_usuario(:1,:2,:3)",
+		newDet.Usuario, newDet.Temporada, newDet.Membresia)
 	if err != nil {
 		fmt.Println("Error in Query:", err)
 		return
@@ -940,6 +1016,10 @@ func main() {
 
 	// CARGA MASIVA
 	router.HandleFunc("/api/cargamasiva", cargaMasivaAPI).Methods("POST")
+
+	// Calculos
+	router.HandleFunc("/api/totaltemporada", getTotalBySeasonAPI).Methods("GET")
+	router.HandleFunc("/api/usuariosmembresia", getUsersByTierSeasonAPI).Methods("GET")
 
 	fmt.Println("Server on port 4000")
 	c := cors.New(cors.Options{
